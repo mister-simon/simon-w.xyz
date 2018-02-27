@@ -1,5 +1,24 @@
 <?php
 
+$url = env('JAWSDB_URL', null);
+
+$jawsDb = null;
+if($url !== null){
+    $parts = parse_url($url);
+
+    $jawsDb = [
+        'driver' => 'mysql',
+        'host' => $parts['host'],
+        'port' => $parts['port'],
+        'database' => ltrim($parts['path'],'/'),
+        'username' => $parts['user'],
+        'password' => $parts['pass'],
+        'charset' => 'utf8mb4',
+        'collation' => 'utf8mb4_unicode_ci',
+        'strict' => true
+    ];
+}
+
 return [
 
     /*
@@ -53,6 +72,8 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+
+        'jawsdb' => $jawsDb,
 
         'pgsql' => [
             'driver' => 'pgsql',
