@@ -12,6 +12,4 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .extract(['vue', 'jquery', 'axios'])
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .options({ processCssUrls: true });
+    .sass('resources/assets/sass/app.scss', 'public/css');

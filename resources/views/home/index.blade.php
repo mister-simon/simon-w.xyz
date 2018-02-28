@@ -4,6 +4,9 @@
 
 @section('body')
     <div id="app" class="d-flex align-items-center justify-content-center" style="height: 100vh">
-        Hello there!
+        <main>
+            Hello there!
+        </main>
+        <landscape-canvas></landscape-canvas>
     </div>
 @endsection
