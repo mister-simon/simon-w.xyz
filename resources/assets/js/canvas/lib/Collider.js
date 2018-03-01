@@ -38,8 +38,8 @@ export default class Collider {
                 const collision = entity1.collision.checkOverlap(entity2);
                 
                 if (collision !== null) {
-                    entity1.collision.register(collision);
-                    entity2.collision.register(collision);
+                    entity1.collision.register(collision.self);
+                    entity2.collision.register(collision.other);
                 }
             }
         }

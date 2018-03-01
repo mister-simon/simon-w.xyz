@@ -18,9 +18,9 @@ export default class Surface {
     }
     
     update(interpolation, scene) {
-        this.overlayAlpha *= 0.9;
+        this.overlayAlpha *= 0.99;
 
-        if (this.overlayAlpha < 0.05) {
+        if (this.overlayAlpha < 0.1) {
             this.overlayAlpha = 0;
         }
     }

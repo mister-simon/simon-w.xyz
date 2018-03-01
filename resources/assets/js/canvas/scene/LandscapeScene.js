@@ -6,7 +6,7 @@ export default class LandscapeScene extends Scene {
     constructor() {
         super();
 
-        this.walker = new Walker(-25, -100);
+        this.walker = new Walker(150, -200);
         this.collidingWalker = new Walker(220, -30);
         this.floor = new Surface(-800, 0, 1600, 800);
         this.leftWall = new Surface(700, -800, 100, 790);

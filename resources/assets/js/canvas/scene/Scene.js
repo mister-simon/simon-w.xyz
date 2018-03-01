@@ -6,6 +6,7 @@ export default class Scene {
 
         this.accumulator = 0;
         this.targetStep = 1000 / 60;
+        this.deltaMax = 3000;
         this.previousTime = 0;
 
         this.collider = new Collider();
@@ -21,8 +22,10 @@ export default class Scene {
     }
 
     frame(time, sceneState) {
-        console.log("--------------")
-        this.accumulator = this.accumulator + (time - this.previousTime);
+        // console.log("--------------", time - this.previousTime, this.deltaMax);
+
+        const delta = Math.min(time - this.previousTime, this.deltaMax);
+        this.accumulator = this.accumulator + delta;
 
         let steps = 0;
 
@@ -32,7 +35,7 @@ export default class Scene {
             this.accumulator -= this.targetStep;
         }
 
-        console.log("Steps " + steps);
+        // console.log("Steps " + steps);
         
         const interpolation = this.accumulator / this.targetStep;
 
