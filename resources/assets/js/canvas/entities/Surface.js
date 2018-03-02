@@ -9,6 +9,7 @@ export default class Surface {
         this.collision.setPos(this.pos);
         this.collision.setSize(this.size);
         this.collision.setResolver(this.hasCollision.bind(this));
+        this.collision.setType("immovable");
 
         this.overlayAlpha = 0;
     }
@@ -17,7 +18,7 @@ export default class Surface {
         this.overlayAlpha = 1;
     }
     
-    update(interpolation, scene) {
+    update(scene) {
         this.overlayAlpha *= 0.99;
 
         if (this.overlayAlpha < 0.1) {

@@ -1,7 +1,14 @@
+let collisionTypes = {
+    momentum: ['immovable'],
+    immovable: []
+};
+
 export default class BoxCollision {
     constructor() {
         this.pos = { x: null, y: null };
         this.size = { w: null, h: null };
+
+        this.collidesWith = [];
 
         this.currentCollisions = [];
 
@@ -16,6 +23,11 @@ export default class BoxCollision {
         this.size = { w: size.w, h: size.h };
     }
 
+    setType(type) {
+        this.type = type;
+        this.collidesWith = collisionTypes[type];
+    }
+
 	getBounds() {
         return {
             left: this.pos.x,
@@ -23,6 +35,10 @@ export default class BoxCollision {
             right: this.pos.x + this.size.w,
             bottom: this.pos.y + this.size.h
         };
+    }
+
+    canCollideWith(collision) {
+        return (this.collidesWith.indexOf(collision.type) !== -1 || collision.collidesWith.indexOf(this.type) !== -1);
     }
 
     checkOverlap(collidable) {
@@ -43,10 +59,10 @@ export default class BoxCollision {
 			};
 
 			const otherCollisions = {
-				top: selfCollisions.top * -1,
-				bottom: selfCollisions.bottom * -1,
-				left: selfCollisions.left * -1,
-				right: selfCollisions.right * -1
+                bottom: selfCollisions.top * -1,
+				top: selfCollisions.bottom * -1,
+                right: selfCollisions.left * -1,
+				left: selfCollisions.right * -1
 			}
 
 			return {
@@ -59,15 +75,15 @@ export default class BoxCollision {
         
     }
 
-    register(collision) {
-        this.currentCollisions.push(collision);
+    register(collision, entity) {
+        this.currentCollisions.push({ collision, entity });
     }
 
     resolve() {
         if (this.resolver !== null) {
             for (let i = 0; i < this.currentCollisions.length; i++) {
                 const collision = this.currentCollisions[i];
-                this.resolver(collision);
+                this.resolver(collision.collision, collision.entity);
             }
         }
 

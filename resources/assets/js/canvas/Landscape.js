@@ -37,7 +37,7 @@ export default class Landscape {
         const windowHeight = window.innerHeight;
 
         this.width = this.cv.width = bounds.width;
-        this.height = this.cv.height = Math.min(this.targetArea / this.width, windowHeight * 0.5);
+        this.height = this.cv.height = windowHeight;
             
         this.needsResize = false;
     }

@@ -9,13 +9,18 @@
 
     export default {
         data(){
+            let landscape = new Landscape();
+
             return {
-                landscape: new Landscape()
+                landscape: landscape
             }
         },
         mounted(){
             this.landscape.canvas = this.$refs.canvas;
-            this.landscape.init();
+
+            Vue.nextTick(() => {
+                this.landscape.init();
+            })
         }
     }
 </script>
