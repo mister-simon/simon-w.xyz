@@ -28,8 +28,8 @@ export default class LandscapeScene extends Scene {
         
         this.add(new Surface(randX, randY, randWidth, randHeight));
         
-        for (let i = 0; i < 100; i++) {
-            this.add(new Walker(0, -500));
+        for (let i = 0; i < 30; i++) {
+            this.add(new Walker(0, -800));
         }
     }
 
