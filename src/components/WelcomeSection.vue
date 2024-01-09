@@ -51,23 +51,29 @@ body {
 }
 
 .wrapper {
-    @apply grid place-content-center rounded-full w-max h-max place-self-center outline outline-8 relative;
-
-    box-shadow:
-        inset 0px -200px 300px theme(colors.neutral.950),
-        inset 0px -200px 500px theme(colors.red.500),
-        inset 0px 200px 800px theme(colors.amber.400),
-        inset 0px 200px 800px theme(colors.slate.400),
-        0px 100px 300px theme(colors.neutral.950),
-        0px 100px 500px theme(colors.red.500),
-        0px -100px 800px theme(colors.amber.400),
-        0px -100px 800px theme(colors.slate.400);
-
-    overflow: hidden;
-    contain: paint;
+    --dark: #0a0a0a;
+    --red: #ef4444;
+    --amber: #fbbf24;
+    --mid: #94a3b8;
 
     --zMulti: 1;
     --partScale: 4;
+
+    @apply grid place-content-center rounded-full w-max h-max place-self-center outline outline-8 relative;
+
+
+    box-shadow:
+        inset 0px -200px 300px var(--dark),
+        inset 0px -200px 500px var(--red),
+        inset 0px 200px 800px var(--amber),
+        inset 0px 200px 800px var(--mid),
+        0px 100px 300px var(--dark),
+        0px 100px 500px var(--red),
+        0px -100px 800px var(--amber),
+        0px -100px 800px var(--mid);
+
+    overflow: hidden;
+    contain: paint;
 
     &:hover {
         --zMulti: 0;
@@ -85,7 +91,6 @@ body {
     transform-style: preserve-3d;
     perspective: 40em;
     animation: gridAnimation infinite 2s linear;
-    /* transform: rotateX(0deg) rotateY(180deg) scaleX(-1); */
 }
 
 .img-part {
