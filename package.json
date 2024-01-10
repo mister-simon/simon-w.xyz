@@ -1,0 +1,24 @@
+{
+  "name": "simonwxyz",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "npm-run-all -p dev:*",
+    "build": "run-s build:*",
+    "dev:11ty": "eleventy --serve",
+    "dev:css": "tailwindcss -i src/_assets/css/app.css -o public/css/app.css --watch --postcss",
+    "build:11ty": "eleventy",
+    "build:css": "tailwindcss -i src/_assets/css/app.css -o public/css/app.css --postcss"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "autoprefixer": "^10.4.16",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.33",
+    "postcss-import": "^16.0.0",
+    "tailwindcss": "^3.4.1"
+  }
+}
