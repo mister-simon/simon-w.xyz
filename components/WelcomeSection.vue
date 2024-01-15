@@ -21,9 +21,9 @@ const getImgSize = (e) => {
 
 <template>
     <img :src="SibotAvatar" alt="" class="invisible" @load="getImgSize">
-    <div class="wrapper group m-8">
+    <NuxtLink to="/test" class="wrapper group transition-transform hover:scale-200 m-8">
         <img :src="SibotAvatar" alt=""
-            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity group-hover:delay-700 duration-500 wf-ull h-full">
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity group-hover:delay-700 group-focus:delay-500 duration-500 w-full h-full">
         <div class="img-grid grid grid-cols-[--wCols] grid-rows-[--hCols] w-max h-max place-self-center" :style="{
             '--wCols': `repeat(${wCount},1fr)`,
             '--hCols': `repeat(${hCount},1fr)`,
@@ -32,17 +32,19 @@ const getImgSize = (e) => {
             '--img': `url(${SibotAvatar})`,
         }" v-if="w !== null && h !== null">
             <template v-for="y in hCount">
-                <div v-for="x in wCount" :key="`${x}-${y}`" class="img-part opacity-50 group-hover:opacity-100" :style="{
+                <div v-for="x in wCount" :key="`${x}-${y}`" class="img-part" :style="{
                     '--x': x,
                     '--y': y,
                     '--xPos': `-${(x - 1) * wSize}px`,
                     '--yPos': `-${(y - 1) * hSize}px`,
                     '--zPos': `calc(((${Math.random()} * 60em) - 30em))`,
+                    '--xPosOffset': `${(Math.random() * (wSize / 2)) - ((wSize / 2) / 2)}px`,
+                    '--yPosOffset': `${(Math.random() * (hSize / 2)) - ((hSize / 2) / 2)}px`,
                 }">
                 </div>
             </template>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <style>
@@ -53,7 +55,7 @@ const getImgSize = (e) => {
     --mid: #94a3b8;
 
     --zMulti: 1;
-    --partScale: 4;
+    --partScale: 1;
 
     @apply grid place-content-center rounded-full w-max h-max place-self-center outline outline-8 relative;
 
@@ -70,12 +72,13 @@ const getImgSize = (e) => {
     overflow: hidden;
     contain: paint;
 
-    &:hover {
+    &:hover,
+    &:focus {
         --zMulti: 0;
-        --partScale: 1;
+        --partScale: 0;
 
         .img-grid {
-            transform: rotateX(0) rotateY(0) scaleX(1);
+            transform: rotateX(0) rotateY(180deg) scaleX(-1);
         }
     }
 }
@@ -85,17 +88,18 @@ const getImgSize = (e) => {
     transition: transform ease-in-out 1s;
     transform-style: preserve-3d;
     perspective: 40em;
-    animation: gridAnimation infinite 2s linear;
+    transform: rotateX(-10deg) rotateY(180deg) scaleX(-1);
 }
 
 .img-part {
-    @apply w-[--wSize] h-[--hSize];
+    @apply w-[--wSize] h-[--hSize] rounded-full;
     transition: transform ease-in-out 1s, opacity ease-in-out 1s;
     background-image: var(--img);
     background-position: var(--xPos) var(--yPos);
 
     transform-style: preserve-3d;
-    transform: translateZ(calc(var(--zPos) * var(--zMulti))) scale(var(--partScale));
-    image-rendering: ;
+    transform:
+        translateX(calc(var(--xPosOffset) * var(--partScale))) translateY(calc(var(--yPosOffset) * var(--partScale))) translateZ(calc(var(--zPos) * var(--zMulti))) scale(calc(var(--zMulti) + 1));
+    image-rendering: pixelated;
 }
 </style>
