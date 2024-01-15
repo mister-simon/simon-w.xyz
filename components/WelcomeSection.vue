@@ -1,9 +1,10 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import SibotAvatar from "@/assets/simonwxyz.png";
 
 const w = ref(null);
 const h = ref(null);
+const imgToLoad = ref(null);
 
 const wCount = 10;
 const hCount = 10;
@@ -13,17 +14,22 @@ const hSize = computed(() => h.value / hCount);
 
 const getImgSize = (e) => {
     const { width, height } = e.target.getBoundingClientRect();
-    e.target.remove();
     w.value = width;
     h.value = height;
 }
+
+onMounted(() => {
+    if (imgToLoad.value.complete) {
+        getImgSize({ target: imgToLoad.value });
+    }
+});
 </script>
 
 <template>
-    <img :src="SibotAvatar" alt="" class="invisible" @load="getImgSize">
-    <NuxtLink to="/test" class="wrapper group transition-transform hover:scale-200 m-8">
+    <img :src="SibotAvatar" alt="" v-if="w === null || h === null" ref="imgToLoad" @load="getImgSize" class="invisible">
+    <NuxtLink to="/test" class="wrapper group m-8">
         <img :src="SibotAvatar" alt=""
-            class="absolute inset-0 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity group-hover:delay-700 group-focus:delay-500 duration-500 w-full h-full">
+            class="absolute inset-0 w-full h-full blur-xl group-hover:blur-0 group-focus:blur-0 transition duration-1000">
         <div class="img-grid grid grid-cols-[--wCols] grid-rows-[--hCols] w-max h-max place-self-center" :style="{
             '--wCols': `repeat(${wCount},1fr)`,
             '--hCols': `repeat(${hCount},1fr)`,
