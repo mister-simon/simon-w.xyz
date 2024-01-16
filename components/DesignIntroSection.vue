@@ -85,9 +85,9 @@ section {
     }
 
     .content {
-        @apply text-5xl p-10 mx-auto;
+        @apply text-2xl sm:text-3xl lg:text-5xl p-10 mx-auto;
         max-width: 80%;
-        max-width: min(80%, 65ch);
+        max-width: min(90%, 65ch);
         font-family: 'Architects Daughter', cursive;
         box-shadow: .5em .5em 0 #0003;
         text-wrap: pretty;
