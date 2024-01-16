@@ -1,18 +1,21 @@
 <template>
-  <NuxtPage />
+  <div class="grid h-full layout">
+    <NuxtPage />
+  </div>
 </template>
 
 <style>
 body {
-  min-height: 100vh;
+  @apply bg-black text-neutral-100;
+  @apply grid min-h-screen;
+
   min-height: 100svh;
-  display: grid;
 
   &>* {
     grid-area: 1 / 1;
   }
 
-  &>:first-child {
+  &> :first-child {
     z-index: 10;
   }
 }
