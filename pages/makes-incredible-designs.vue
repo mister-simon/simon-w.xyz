@@ -1,21 +1,28 @@
 <template>
-    <div class="layout">
+    <div class="layout font-mono">
         <nav class="fixed top-0 z-50">
             <NuxtLink to="/" class="text-5xl p-4 inline-grid place-content-center" aria-label="Back">&lt;&mdash;</NuxtLink>
         </nav>
-        <section class="lead bg-yellow-900 text-neutral-800">
+        <section class="lead">
+            <div class="backdrop"></div>
             <div class="sunshine">
-                <div class="sunshine-clip blur-sm">
+                <div class="sunshine-clip sunshine-clip-first">
                     <div class="sunshine-inner"></div>
                 </div>
-                <div class="sunshine-clip blur-sm">
+                <div class="sunshine-clip sunshine-clip-last">
+                    <div class="sunshine-inner"></div>
+                </div>
+                <div class="sunshine-clip sunshine-clip-scroll">
                     <div class="sunshine-inner"></div>
                 </div>
             </div>
-            <div class="content text-white space-y-4 bg-black bg-static mix-blend-hard-light">
-                <p><em>OK, I am not a design guru, I'll admit that.</em></p>
-                <p>But I do understand that a design has a purpose, and if this page sticks in your mind, for better or
-                    worse, it will have satisfied it's purpose.</p>
+            <div class="content text-white bg-black/50 relative">
+                <div class="bg-black bg-static mix-blend-difference blur-[2px] absolute inset-0 z-0"></div>
+                <div class="space-y-4 relative z-10">
+                    <p><em>OK, I'm not the best designer ever...</em></p>
+                    <p>But I do understand that a design has a purpose, and if this page sticks in your mind, for better or
+                        worse, it will have satisfied it's purpose.</p>
+                </div>
             </div>
         </section>
         <section>
@@ -40,13 +47,13 @@
 </template>
 
 <style scoped>
-@keyframes static {
+@keyframes static-effect {
     from {
-        --static-offset: -2%;
+        --static-offset: -20%;
     }
 
     25% {
-        --static-offset: -1%;
+        --static-offset: -10%;
     }
 
     50% {
@@ -54,11 +61,11 @@
     }
 
     75% {
-        --static-offset: 1%;
+        --static-offset: 10%;
     }
 
     to {
-        --static-offset: 2%;
+        --static-offset: 20%;
     }
 }
 
@@ -68,25 +75,50 @@
     }
 }
 
+@keyframes rotater {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
 section {
-    @apply min-h-screen;
+    @apply min-h-screen grid place-content-center;
 }
 
 .lead {
-    @apply overflow-hidden relative isolate grid place-content-center;
+    @apply overflow-hidden relative isolate bg-yellow-950 text-neutral-800;
+
+    .backdrop {
+        @apply absolute inset-0 -z-10 blur-[1px] scale-150;
+
+        --static-offset: 50%;
+
+        animation: static-effect 500ms linear infinite alternate;
+
+        background-size: 50%;
+        background-image:
+            repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #5000 0.001deg),
+            repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000, #0500 0.001deg),
+            repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #0050 0.001deg);
+    }
 
     .content {
         @apply max-w-prose text-2xl p-10;
+        box-shadow: .5em .5em 0 #0003;
     }
 }
 
 .bg-static {
     --static-offset: 0%;
-    animation: static 500ms linear infinite alternate;
+    animation: static-effect 500ms linear infinite alternate;
     background-image:
-        repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000 0deg 0.0001deg, #050 0.0001deg 0.0002deg),
-        repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #0000 0deg 0.0001deg, #005 0.0001deg 0.0002deg),
-        repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #0000 0deg 0.0001deg, #500 0.0001deg 0.0002deg);
+        repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000, #050A 0.001deg),
+        repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #005A 0.001deg),
+        repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #500A 0.001deg);
 }
 
 .sunshine {
@@ -97,17 +129,28 @@ section {
 
     width: max(150svh, 150svw);
 
+    --static-offset: 0%;
+
     & * {
         @apply size-full;
     }
 
     &-clip {
+        @apply mix-blend-multiply;
+
         grid-area: 1/1;
         animation: spin 100s linear infinite;
         mask-image: url('@/assets/star-mask.svg');
         mask-size: cover;
 
-        &:last-child {
+        &-scroll {
+            @apply mix-blend-color-burn invert;
+            opacity: .5;
+            animation: spin 1ms linear both, rotater 600s linear infinite;
+            animation-timeline: scroll(root), auto;
+        }
+
+        &-last {
             animation: spin 130s linear infinite;
             scale: 0.9;
         }
@@ -117,15 +160,13 @@ section {
         --static-offset: 0%;
         --tw-rotate: 0;
 
-        animation: static 500ms linear infinite alternate;
-        background-image: radial-gradient(#FFF 5%, rgb(255, 213, 0) 20%, rgb(255, 102, 102));
-        background-size: cover;
+        animation: static-effect 500ms linear infinite alternate;
+        background-image: radial-gradient(#FFF, #FFFFFE 20%, rgb(255, 213, 0) 40%, rgb(255, 102, 102));
 
-        mask-size: cover;
         mask-image:
-            repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000 0deg 0.0001deg, #0F08 0.0001deg 0.0002deg),
-            repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #0000 0deg 0.0001deg, #00F8 0.0001deg 0.0002deg),
-            repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #0000 0deg 0.0001deg, #F008 0.0001deg 0.0002deg),
+            repeating-conic-gradient(from 0.0011deg at 19% var(--static-offset), #0000, #0F08 0.001deg),
+            repeating-conic-gradient(from 0.0022deg at 50% var(--static-offset), #0000, #00F8 0.001deg),
+            repeating-conic-gradient(from 0.0033deg at 81% var(--static-offset), #0000, #F008 0.001deg),
             radial-gradient(closest-side, #000, #000E 20%, #0000);
     }
 }
