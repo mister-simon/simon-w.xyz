@@ -25,5 +25,6 @@
 <style scoped>
 section {
     @apply min-h-screen grid place-content-center;
+    min-height: 100svh;
 }
 </style>
