@@ -62,12 +62,11 @@
     }
 }
 
-:root {
-    --static-offset: 0%;
-}
-
 section {
     @apply overflow-hidden relative isolate bg-yellow-950 text-neutral-800;
+
+    --static-offset: 0%;
+    --static-width: 0.001;
 
     .backdrop {
         @apply absolute inset-0 -z-10 blur-[1px] scale-150;
@@ -79,9 +78,9 @@ section {
         background-position: center right;
         background-size: 50%;
         background-image:
-            repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #5000 0.001deg 0.002deg),
-            repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000, #0500 0.001deg 0.002deg),
-            repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #0050 0.001deg 0.002deg);
+            repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #5000 calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+            repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #000, #0500 calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+            repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #0050 calc(1deg * var(--static-width)) calc(2deg * var(--static-width)));
     }
 
     .content {
@@ -101,9 +100,9 @@ section {
 .bg-static {
     animation: static-effect 500ms linear infinite alternate;
     background-image:
-        repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #0000, #050A 0.001deg 0.002deg),
-        repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #005A 0.001deg 0.002deg),
-        repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #500A 0.001deg 0.002deg);
+        repeating-conic-gradient(from 1.111deg at 19% var(--static-offset), #000, #050A calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+        repeating-conic-gradient(from 1.222deg at 50% var(--static-offset), #000, #005A calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+        repeating-conic-gradient(from 1.333deg at 81% var(--static-offset), #000, #500A calc(1deg * var(--static-width)) calc(2deg * var(--static-width)));
 }
 
 .sunshines {
@@ -117,7 +116,7 @@ section {
     --static-offset: 0%;
 
     & * {
-        @apply size-full;
+        @apply size-full opacity-80;
     }
 
     &-clip {
@@ -148,10 +147,10 @@ section {
         background-image: radial-gradient(#FFF, #FFFFFE 20%, rgb(255, 213, 0) 40%, rgb(255, 102, 102));
 
         mask-image:
-            repeating-conic-gradient(from 0.0011deg at 19% var(--static-offset), #0000, #0F08 0.001deg 0.002deg),
-            repeating-conic-gradient(from 0.0022deg at 50% var(--static-offset), #0000, #00F8 0.001deg 0.002deg),
-            repeating-conic-gradient(from 0.0033deg at 81% var(--static-offset), #0000, #F008 0.001deg 0.002deg),
-            radial-gradient(closest-side, #000, #000E 20%, #0000);
+            repeating-conic-gradient(from 0.0011deg at 19% var(--static-offset), #000, #0F08 calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+            repeating-conic-gradient(from 0.0022deg at 50% var(--static-offset), #000, #00F8 calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+            repeating-conic-gradient(from 0.0033deg at 81% var(--static-offset), #000, #F008 calc(1deg * var(--static-width)) calc(2deg * var(--static-width))),
+            radial-gradient(closest-side, #000, #000E 20%, #000);
     }
 }
 </style>
