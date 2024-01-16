@@ -64,6 +64,7 @@
 
 section {
     @apply overflow-hidden relative isolate bg-yellow-950 text-neutral-800;
+    image-rendering: pixelated;
 
     --static-offset: 0%;
     --static-width: 0.001;

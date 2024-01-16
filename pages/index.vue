@@ -9,7 +9,7 @@
         <NuxtLink to="/is-smrt">Knowledge</NuxtLink>
       </li> -->
       <li>
-        <NuxtLink to="/makes-incredible-designs">A Design Guru</NuxtLink>
+        <NuxtLink to="/makes-incredible-designs">An Incredible Designer</NuxtLink>
       </li>
       <!-- <li>
         <NuxtLink to="/totally-pro">A Professional</NuxtLink>
