@@ -66,6 +66,7 @@
 
 section {
     @apply overflow-hidden relative isolate bg-yellow-950 text-neutral-800;
+    @apply grid place-content-center;
     /* image-rendering: pixelated; */
 
     --static-offset: 0%;
