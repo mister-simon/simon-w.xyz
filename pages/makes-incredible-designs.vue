@@ -27,11 +27,9 @@
 main {
     display: grid;
     gap: 6rem;
-    scroll-snap-type: y mandatory;
 }
 
-section {
-    scroll-snap-align: start;
+main>section {
     min-height: 100vh;
     min-height: 100svh;
 }

@@ -5,8 +5,6 @@
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Permanent+Marker&display=swap');
-
 body {
   @apply bg-black text-neutral-100;
   @apply grid min-h-screen;
