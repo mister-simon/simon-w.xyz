@@ -24,25 +24,27 @@
 </template>
 
 <style scoped>
-@keyframes static-effect {
-    from {
-        --static-offset: -20%;
-    }
+@screen sm {
+    @keyframes static-effect {
+        from {
+            --static-offset: -20%;
+        }
 
-    25% {
-        --static-offset: -10%;
-    }
+        25% {
+            --static-offset: -10%;
+        }
 
-    50% {
-        --static-offset: 0%;
-    }
+        50% {
+            --static-offset: 0%;
+        }
 
-    75% {
-        --static-offset: 10%;
-    }
+        75% {
+            --static-offset: 10%;
+        }
 
-    to {
-        --static-offset: 20%;
+        to {
+            --static-offset: 20%;
+        }
     }
 }
 
@@ -64,7 +66,7 @@
 
 section {
     @apply overflow-hidden relative isolate bg-yellow-950 text-neutral-800;
-    image-rendering: pixelated;
+    /* image-rendering: pixelated; */
 
     --static-offset: 0%;
     --static-width: 0.001;
