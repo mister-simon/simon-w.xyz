@@ -1,34 +1,35 @@
 <script setup>
 let animationFrame = null;
+const cursorPos = ref({ x: 0, y: 0 });
 const cursors = ref(
     Array.from(
         { length: 10 },
-        () => ({
-            x: 0,
-            y: 0,
-            curX: 0,
-            curY: 0
-        })
+        () => ({ x: 0, y: 0 })
     )
 );
 
 const section = ref(null);
 
 const cursorMove = (e) => {
-    cursors.value.forEach(
-        (_, i) => {
-            cursors.value[i].x = e.pageX - section.value.offsetLeft;
-            cursors.value[i].y = e.pageY - section.value.offsetTop;
-        }
-    )
+    cursorPos.value.x = e.pageX - section.value.offsetLeft;
+    cursorPos.value.y = e.pageY - section.value.offsetTop;
 }
 
 const heartStep = () => {
     animationFrame = requestAnimationFrame(heartStep);
     cursors.value.forEach(
-        ({ x, y, curX, curY }, i) => {
-            cursors.value[i].curX = curX + ((x - curX) / ((i * 2) + 1));
-            cursors.value[i].curY = curY + ((y - curY) / ((i * 2) + 1));
+        ({ x, y }, i) => {
+            if (i === 0) {
+                cursors.value[i].x = cursorPos.value.x;
+                cursors.value[i].y = cursorPos.value.y;
+                return;
+            }
+
+            const prev = cursors.value[i - 1];
+
+            cursors.value[i].x = x + ((prev.x - x) / ((i * 2) + 1)) + (i / 5);
+            cursors.value[i].y = y + ((prev.y - y) / ((i * 2) + 1)) + (i / 2);
+
         }
     );
 };
@@ -42,9 +43,9 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
         <template v-for="(cursor, i) of cursors">
             <div class="heart-cursor absolute z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2 text-[calc(var(--text-size))]"
                 :style="{
-                    '--cursor-x': `${cursor.curX}px`,
-                    '--cursor-y': `${cursor.curY}px`,
-                    '--text-size': `${(cursors.length - i) / 2}rem`,
+                    '--cursor-x': `${cursor.x}px`,
+                    '--cursor-y': `${cursor.y}px`,
+                    '--text-size': `${i / 2}rem`,
                 }">💖</div>
         </template>
         <aside class="pt-20 space-y-10 pb-8 border-double md:border-r-4 border-red-400 px-4 group">
