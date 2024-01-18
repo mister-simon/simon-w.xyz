@@ -1,40 +1,71 @@
 <script setup>
-const cursorX = ref(0);
-const cursorY = ref(0);
+let animationFrame = null;
+const cursors = ref(
+    Array.from(
+        { length: 10 },
+        () => ({
+            x: 0,
+            y: 0,
+            curX: 0,
+            curY: 0
+        })
+    )
+);
+
 const section = ref(null);
 
-let once = 0;
-
-const cursorMove = function (e) {
-    cursorX.value = e.pageX - section.value.offsetLeft;
-    cursorY.value = e.pageY - section.value.offsetTop;
+const cursorMove = (e) => {
+    cursors.value.forEach(
+        (_, i) => {
+            cursors.value[i].x = e.pageX - section.value.offsetLeft;
+            cursors.value[i].y = e.pageY - section.value.offsetTop;
+        }
+    )
 }
+
+const heartStep = () => {
+    animationFrame = requestAnimationFrame(heartStep);
+    cursors.value.forEach(
+        ({ x, y, curX, curY }, i) => {
+            cursors.value[i].curX = curX + ((x - curX) / ((i * 2) + 1));
+            cursors.value[i].curY = curY + ((y - curY) / ((i * 2) + 1));
+        }
+    );
+};
+
+onMounted(() => heartStep());
+onUnmounted(() => cancelAnimationFrame(animationFrame));
 </script>
 
 <template>
     <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section">
-        <div class="heart-cursor absolute text-8xl z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2"
-            :style="{ '--cursor-x': `${cursorX}px`, '--cursor-y': `${cursorY}px` }">💖</div>
-        <aside class="pt-20 space-y-10 pb-8 border-double md:border-r-4 border-red-400 px-4">
+        <template v-for="(cursor, i) of cursors">
+            <div class="heart-cursor absolute z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2 text-[calc(var(--text-size))]"
+                :style="{
+                    '--cursor-x': `${cursor.curX}px`,
+                    '--cursor-y': `${cursor.curY}px`,
+                    '--text-size': `${(cursors.length - i) / 2}rem`,
+                }">💖</div>
+        </template>
+        <aside class="pt-20 space-y-10 pb-8 border-double md:border-r-4 border-red-400 px-4 group">
             <h2 class="text-red-600">Welcome to my Cool Website</h2>
             <p>This is a site all bout <strong class="font-light text-3xl font-mono">me</strong> so if u aren't mi frined
                 then dnt' scroll any further!</p>
             <div
-                class="overflow-hidden motion-reduce:hidden hover:scale-x-150 origin-top-left motion-safe:transition-transform group">
+                class="overflow-hidden motion-reduce:hidden group-hover:scale-x-150 motion-safe:transition-transform group motion-safe:duration-200">
                 <NuxtImg src="/assets/spinning-chair-min.gif"
                     class="rounded-full aspect-square mx-auto border-[1rem] motion-safe:animate-spin [--animate-duration:60s]"
                     quality="10" width="300" />
             </div>
             <blockquote
                 class="font-sans font-extralight text-md border-4 border-teal-600 bg-slate-900 text-neutral-200 p-3">
-                <p>The key to incredible design is to always <strong>be
-                        learning</strong>. Always <strong>trying new things</strong>. Never settling. Never looking back.
-                    Never
-                    <strong>learning from your past mistakes</strong>. Always <strong>learning from the future</strong>.
-                    <strong>Using time travel</strong>, constantly. Failing to see the dangers <strong>until it's too
-                        late</strong>... It's <strong>too late</strong>. It's too late. What can I do now... That's
-                    <strong>the
-                        secret of great design</strong> :3.
+                <p>
+                    The key to incredible design is to always <strong>be learning</strong>. Always <strong>trying new
+                        things</strong>. Never settling. Never looking back. Never <strong>learning from your past
+                        mistakes</strong>. Always <strong>learning from the future</strong>. <strong>Using time
+                        travel</strong>, constantly. Failing to see the dangers <strong>until it's too late</strong>... It's
+                    <strong>too late</strong>. It's too late. What can I do now... That's <strong>the secret of great
+                        design</strong> :3.
                 </p>
                 <cite class="font-semibold">- Simon</cite>
             </blockquote>
