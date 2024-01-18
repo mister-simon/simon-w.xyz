@@ -6,11 +6,11 @@
             <NuxtLink to="/" class="text-5xl p-4 inline-grid place-content-center" aria-label="Back">&lt;&mdash; Back
             </NuxtLink>
         </nav>
-        <DesignIntroSection />
         <DesignSecondSection />
-        <section class="bg-black grid place-content-center">
+        <DesignIntroSection />
+        <section class="bg-black grid place-content-center gap-4">
             <div class="max-w-prose text-center text-xl font-script-thick md:text-5xl">
-                <p>You're welcome</p>
+                <p>You're welcome.</p>
             </div>
         </section>
     </main>
