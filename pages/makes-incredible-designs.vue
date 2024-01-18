@@ -1,6 +1,7 @@
 <template>
-    <main>
-        <NuxtImg src="assets/coffee-and-pancakes.jpg" class="fixed w-full -z-10 scroll-img" width="1556" height="2075" />
+    <main class="relative">
+        <NuxtImg src="assets/coffee-and-pancakes.jpg" class="fixed w-full min-h-full inset-0 -z-10 scroll-img object-cover"
+            width="1556" height="2075" />
         <nav class="fixed top-0 z-50 font-mono">
             <NuxtLink to="/" class="text-5xl p-4 inline-grid place-content-center" aria-label="Back">&lt;&mdash;</NuxtLink>
         </nav>
