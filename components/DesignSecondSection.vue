@@ -72,9 +72,10 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
                         design</strong> :3.
                 </p>
                 <cite class="font-semibold font-script">
-                    - Simon, <span class="tracking-widest">{{ curDate.getFullYear() + 1000 }}-{{ String(curDate.getMonth()
-                        +
-                        1).padStart(2, '0') }}-{{ String(curDate.getDate()).padStart(2, '0') }}</span></cite>
+                    - Simon, <span class="tracking-widest">{{ String(curDate.getDate()).padStart(2, '0') }}/{{
+                        String(curDate.getMonth()
+                            +
+                            1).padStart(2, '0') }}/{{ curDate.getFullYear() + 1000 }}</span></cite>
             </blockquote>
         </aside>
         <article class="bg-neutral-400">
