@@ -1,6 +1,8 @@
 <script setup>
 let animationFrame = null;
+
 const cursorPos = ref({ x: 0, y: 0 });
+
 const cursors = ref(
     Array.from(
         { length: 10 },
@@ -9,6 +11,7 @@ const cursors = ref(
 );
 
 const section = ref(null);
+const curDate = new Date;
 
 const cursorMove = (e) => {
     cursorPos.value.x = e.pageX - section.value.offsetLeft;
@@ -53,7 +56,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
             <p>This is a site all bout <strong class="font-light text-3xl font-mono">me</strong> so if u aren't mi frined
                 then dnt' scroll any further!</p>
             <div
-                class="overflow-hidden motion-reduce:hidden group-hover:scale-x-150 motion-safe:transition-transform group motion-safe:duration-200">
+                class="overflow-hidden motion-reduce:hidden group-hover:scale-x-150 motion-safe:transition-transform group">
                 <NuxtImg src="/assets/spinning-chair-min.gif"
                     class="rounded-full aspect-square mx-auto border-[1rem] motion-safe:animate-spin [--animate-duration:60s]"
                     quality="10" width="300" />
@@ -68,7 +71,10 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
                     <strong>too late</strong>. It's too late. What can I do now... That's <strong>the secret of great
                         design</strong> :3.
                 </p>
-                <cite class="font-semibold">- Simon</cite>
+                <cite class="font-semibold font-script">
+                    - Simon, <span class="tracking-widest">{{ curDate.getFullYear() + 1000 }}-{{ String(curDate.getMonth()
+                        +
+                        1).padStart(2, '0') }}-{{ String(curDate.getDate()).padStart(2, '0') }}</span></cite>
             </blockquote>
         </aside>
         <article class="bg-neutral-400">
@@ -93,18 +99,17 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
                 </div>
                 <p class="text-2xl text-red-800 border-8 border-dashed p-4 border-blue-800">
                     I can quickly break down a design / layout into HTML and CSS. When working from a design, it's important
-                    to
-                    be able to visualise the <span class="font-script-thick">flow of content</span> before you start styling
+                    to be able to visualise the <span class="font-script-thick">flow of content</span> before you start
+                    styling
                     <span class="font-mono tracking-tighter">the layout</span>.
                 </p>
                 <div class="bg-black p-4 md:p-8 md:mr-10">
                     <p class="text-6xl font-bold font-mono tracking-tighter mt-auto text-bg-raku">
-                        I have also often often worked with <span
-                            class="underline text-xl md:text-8xl text-neutral-700/80 font-sans">form</span>
-                        following <span class="underline text-8xl text-neutral-700/80 font-serif">function</span>.
-                        Using the business requirements of a project to drive it's design forward, iterating on the design
-                        as features are implemented over time.
-                    </p>
+                        I have also often worked with <span
+                            class="underline text-xl md:text-8xl text-neutral-700/80 font-sans">form</span> following <span
+                            class="underline text-8xl text-neutral-700/80 font-serif">function</span>. Using the business
+                        requirements of a project to drive it's design forward, iterating on the design as features are
+                        implemented over time. </p>
                 </div>
             </div>
         </article>
@@ -181,5 +186,4 @@ blockquote {
     background-clip: text;
     color: #FFF2;
     filter: drop-shadow(2px 2px 0px green) brightness(2);
-}
-</style>
+}</style>
