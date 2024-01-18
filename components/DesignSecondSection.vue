@@ -182,7 +182,7 @@ blockquote {
         animation: sliding-bg linear 10s infinite;
     }
 
-    background-image: url('/_ipx/w_600&q_50/assets/raku-pot-texture.jpg');
+    background-image: url('/assets/raku-pot-texture-min.jpg');
     background-size: 50%;
     background-clip: text;
     color: #FFF2;
