@@ -12,7 +12,7 @@ const cursorMove = function (e) {
 </script>
 
 <template>
-    <section class="md:grid relative overflow-clip cursor-none" @mousemove.passive="cursorMove" ref="section">
+    <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section">
         <div class="heart-cursor absolute text-8xl z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2"
             :style="{ '--cursor-x': `${cursorX}px`, '--cursor-y': `${cursorY}px` }">💖</div>
         <aside class="pt-20 space-y-10 pb-8 border-double md:border-r-4 border-red-400 px-4">
@@ -46,7 +46,7 @@ const cursorMove = function (e) {
                     Good?
                 </h2>
             </header>
-            <div class="px-6 py-8 space-y-6">
+            <div class="md:px-6 py-8 space-y-6">
                 <NuxtImg src="/assets/mockup-skillz.jpg"
                     class="mx-auto rounded-3xl shadow-thicc shadow-green-700 md:float-end md:max-w-[35%] md:ml-10 md:mb-8 hover:scale-150 origin-right motion-safe:transition-transform"
                     quality="10" width="600"
@@ -65,10 +65,10 @@ const cursorMove = function (e) {
                     be able to visualise the <span class="font-script-thick">flow of content</span> before you start styling
                     <span class="font-mono tracking-tighter">the layout</span>.
                 </p>
-                <div class="bg-black p-8 mr-10">
+                <div class="bg-black p-4 md:p-8 md:mr-10">
                     <p class="text-6xl font-bold font-mono tracking-tighter mt-auto text-bg-raku">
                         I have also often often worked with <span
-                            class="underline text-8xl text-neutral-700/80 font-sans">form</span>
+                            class="underline text-xl md:text-8xl text-neutral-700/80 font-sans">form</span>
                         following <span class="underline text-8xl text-neutral-700/80 font-serif">function</span>.
                         Using the business requirements of a project to drive it's design forward, iterating on the design
                         as features are implemented over time.
