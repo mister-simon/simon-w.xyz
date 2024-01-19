@@ -1,3 +1,17 @@
+<script setup>
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      href: 'favicon.png'
+    },
+    {
+      rel: 'icon',
+      href: 'favicon.svg'
+    }
+  ]
+})
+</script>
 <template>
   <div class="place-self-center">
     <h1 class="text-3xl">What are you looking for?</h1>

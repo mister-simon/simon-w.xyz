@@ -1,6 +1,8 @@
 <script setup>
-let animationFrame = null;
+const curDate = new Date;
+const section = ref(null);
 
+let animationFrame = null;
 const cursorPos = ref({ x: 0, y: 0 });
 
 const cursors = ref(
@@ -9,9 +11,6 @@ const cursors = ref(
         () => ({ x: 0, y: 0 })
     )
 );
-
-const section = ref(null);
-const curDate = new Date;
 
 const cursorMove = (e) => {
     cursorPos.value.x = e.pageX - section.value.offsetLeft;
