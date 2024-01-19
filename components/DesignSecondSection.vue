@@ -29,8 +29,15 @@ const heartStep = () => {
 
             const prev = cursors.value[i - 1];
 
-            cursors.value[i].x = x + ((prev.x - x) / ((i * 2) + 1)) + (i / 5);
-            cursors.value[i].y = y + ((prev.y - y) / ((i * 2) + 1)) + (i / 2);
+            const diffX = ((prev.x - x) / ((i * 2) + 1));
+            const diffY = ((prev.y - y) / ((i * 2) + 1));
+
+            if (Math.abs(diffX) < 0.25 && Math.abs(diffY) < 0.25) {
+                return;
+            }
+
+            cursors.value[i].x = x + diffX + (i / 5);
+            cursors.value[i].y = y + diffY + (i / 2);
         }
     );
 };
@@ -40,14 +47,15 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
 </script>
 
 <template>
-    <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section">
+    <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section"
+        @click="wort = !wort">
         <template v-for="(cursor, i) of cursors">
-            <div class="heart-cursor absolute z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2 text-[calc(var(--text-size))] motion-reduce:text-4xl"
+            <div class="heart-cursor absolute z-50 leading-none pointer-events-none translate-x-[--cursor-x] translate-y-[--cursor-y] text-[calc(var(--text-size))] motion-reduce:text-4xl"
                 :class="{ 'motion-reduce:hidden': i !== 1 }" :style="{
                     '--cursor-x': `${cursor.x}px`,
                     '--cursor-y': `${cursor.y}px`,
-                    '--text-size': `${i / 2}rem`,
-                }">💖</div>
+                    '--text-size': `${(i + 1) / 2}rem`,
+                }"><span class="-translate-x-1/2 -translate-y-1/2">💖</span></div>
         </template>
         <aside class="pt-20 space-y-10 pb-8 border-double md:border-r-4 border-red-400 px-4 group">
             <h2 class="text-red-600">Welcome to my Cool Website</h2>
