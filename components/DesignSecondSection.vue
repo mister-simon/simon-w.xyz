@@ -31,7 +31,6 @@ const heartStep = () => {
 
             cursors.value[i].x = x + ((prev.x - x) / ((i * 2) + 1)) + (i / 5);
             cursors.value[i].y = y + ((prev.y - y) / ((i * 2) + 1)) + (i / 2);
-
         }
     );
 };
@@ -43,8 +42,8 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
 <template>
     <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section">
         <template v-for="(cursor, i) of cursors">
-            <div class="heart-cursor absolute z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2 text-[calc(var(--text-size))]"
-                :style="{
+            <div class="heart-cursor absolute z-50 leading-none left-[--cursor-x] top-[--cursor-y] pointer-events-none -translate-x-1/2 -translate-y-1/2 text-[calc(var(--text-size))] motion-reduce:text-4xl"
+                :class="{ 'motion-reduce:hidden': i !== 1 }" :style="{
                     '--cursor-x': `${cursor.x}px`,
                     '--cursor-y': `${cursor.y}px`,
                     '--text-size': `${i / 2}rem`,
@@ -93,7 +92,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
                     <p class="font-serif text-neutral-900 horrible-text-gradient">
                         I do my best work in collaboration with
                         <NuxtImg src="/assets/designers.png" alt="designers"
-                            class="inline-block max-w-[40%] hover:invert motion-safe:transition motion-safe:duration-1000 hover:rotate-12" />
+                            class="inline-block max-w-[40%] motion-safe:hover:invert motion-safe:transition motion-safe:duration-1000 hover:rotate-12" />
                         when developing a front-end.
                     </p>
                 </div>
