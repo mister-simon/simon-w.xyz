@@ -110,6 +110,8 @@ onMounted(() => {
 
         <figure class="group bg-neutral-700">
             <NuxtImg src="/assets/tedtalk-emphasis.png" class="-scale-x-100" />
+            <NuxtImg src="/assets/tedtalk-some-people.png"
+                class="absolute inset-x-0 top-[70%] -translate-y-full w-full -z-10 opacity-50" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -122,6 +124,8 @@ onMounted(() => {
 
         <figure class="group bg-neutral-700">
             <NuxtImg src="/assets/tedtalk-extra-emphasis.png" class="-scale-x-100" />
+            <NuxtImg src="/assets/tedtalk-a-dog.png"
+                class="absolute inset-x-0 top-[70%] -translate-y-[calc(100%-2rem)] w-1/4 z-0 brightness-50 ml-auto" />
         </figure>
         <div class="outer">
             <div class="inner">
