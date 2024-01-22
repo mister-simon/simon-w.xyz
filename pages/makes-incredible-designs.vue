@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <Title>I Design Real Good | SimonW.XYZ</Title>
+    </Head>
     <main class="relative">
         <NuxtImg src="assets/coffee-and-pancakes.jpg" class="fixed w-full min-h-full inset-0 -z-10 scroll-img object-cover"
             width="1556" height="2075" />

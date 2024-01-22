@@ -49,6 +49,9 @@ useHead({
 })
 </script>
 <template>
+  <Head>
+    <Title>Welcome! | SimonW.XYZ</Title>
+  </Head>
   <div class="place-self-center">
     <h1 class="text-3xl">What are you looking for?</h1>
     <ul>
@@ -61,9 +64,9 @@ useHead({
       <li>
         <NuxtLink to="/makes-incredible-designs">An Incredible Designer</NuxtLink>
       </li>
-      <!-- <li>
+      <li>
         <NuxtLink to="/totally-pro">A Professional</NuxtLink>
-      </li> -->
+      </li>
     </ul>
   </div>
 </template>

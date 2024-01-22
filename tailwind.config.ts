@@ -6,6 +6,7 @@ export default <Partial<Config>>{
     extend: {
       animation: {
         spin: "spin var(--animate-duration) linear infinite reverse",
+        "spin-default": "spin var(--animate-duration) linear infinite",
       },
       fontFamily: {
         script: ['"Architects Daughter"', "cursive"],
