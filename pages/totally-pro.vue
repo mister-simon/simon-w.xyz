@@ -36,7 +36,8 @@ onMounted(() => {
         <figure class="group overflow-clip bg-neutral-900">
             <div
                 class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full transition delay-1000 duration-1000 group-[.active]:-translate-x-1/2">
-                <NuxtImg src="/assets/tedtalk-emphasis.png" class="rotate-12 brightness-50 -scale-x-100" />
+                <NuxtImg src="/assets/tedtalk-emphasis.png" class="rotate-12 brightness-50 -scale-x-100"
+                    alt="a linework figure with a black hat and a thin red tie slides in from the left" />
             </div>
         </figure>
         <div class="outer">
@@ -48,7 +49,7 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-600 overflow-clip">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+            <NuxtImg src="/assets/tedtalk-emphasis.png" alt="The linework Simon gesticulates with emphasis" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -59,7 +60,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-600">
-            <NuxtImg src="/assets/tedtalk-neutral.png" />
+            <NuxtImg src="/assets/tedtalk-neutral.png"
+                alt="The linework Simon adopts a neutral pose, looking pensive and poignant" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -72,7 +74,8 @@ onMounted(() => {
 
         <figure class="group bg-blue-900">
             <NuxtImg src="/assets/tedtalk-blocky.png"
-                class="transition delay-1000 group-[.active]:delay-500 -scale-x-100 -translate-x-4 group-[.active]:rotate-45" />
+                class="transition delay-1000 group-[.active]:delay-500 -scale-x-100 -translate-x-4 group-[.active]:rotate-45"
+                alt="A silly blocky looking linework Simon delivers a bad joke and twists sideways" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -87,7 +90,7 @@ onMounted(() => {
 
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-neutral.png" />
+            <NuxtImg src="/assets/tedtalk-neutral.png" alt="Linework Simon returns to their neutral stance" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -98,7 +101,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-neutral.png" class=" -scale-x-100" />
+            <NuxtImg src="/assets/tedtalk-neutral.png" class=" -scale-x-100"
+                alt="Neutral linework Simon faces the other way" />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -109,9 +113,10 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" class="-scale-x-100" />
+            <NuxtImg src="/assets/tedtalk-emphasis.png" class="-scale-x-100" alt="Linework Simon emphasises the point" />
             <NuxtImg src="/assets/tedtalk-some-people.png"
-                class="absolute inset-x-0 top-[70%] -translate-y-full w-full -z-10 opacity-50" />
+                class="absolute inset-x-0 top-[70%] -translate-y-full w-full -z-10 opacity-50"
+                alt="Silhouetted linework people are in the background." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -123,9 +128,11 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-extra-emphasis.png" class="-scale-x-100" />
+            <NuxtImg src="/assets/tedtalk-extra-emphasis.png" class="-scale-x-100"
+                alt="Linework Simon punches the air to really drive this point home." />
             <NuxtImg src="/assets/tedtalk-a-dog.png"
-                class="absolute inset-x-0 top-[70%] -translate-y-[calc(100%-2rem)] w-1/4 z-0 brightness-50 ml-auto" />
+                class="absolute inset-x-0 top-[70%] -translate-y-[calc(100%-2rem)] w-1/4 z-0 brightness-50 ml-auto"
+                alt="A linework dog with a hat and red tie stands in the background." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -140,7 +147,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-red-950">
-            <NuxtImg src="/assets/tedtalk-neutral.png" class="" />
+            <NuxtImg src="/assets/tedtalk-neutral.png" class=""
+                alt="Linework Simon delivers the following point weightily." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -154,7 +162,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-a-dog.png" />
+            <NuxtImg src="/assets/tedtalk-a-dog.png"
+                alt="Linework Simon is now the previously mentioned dog, with a hat and red tie." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -167,7 +176,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-a-dog-bork.png" class="motion-safe:animate-bounce" />
+            <NuxtImg src="/assets/tedtalk-a-dog-bork.png" class="motion-safe:animate-bounce"
+                alt="Linework Simon the Dog has an open mouth to bark and bounces up and down." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -178,8 +188,8 @@ onMounted(() => {
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+        <figure class="group bg-teal-700">
+            <NuxtImg src="/assets/tedtalk-emphasis.png" alt="Regular Linework Simon emphasises this new point." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -189,8 +199,22 @@ onMounted(() => {
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+        <figure class="group place-content-stretch no-horizon bg-neutral-100">
+            <div
+                class="grid border border-black rounded-sm aspect-[1.75] w-full grid-cols-5 self-center rotate-2 m-4 bg-white origin-bottom-left shadow transition hover:rotate-0 hover:scale-110 hover:shadow-[0_1.2rem_0.5rem_-1rem_#0006]">
+                <div class="col-span-2 relative overflow-hidden m-2 horizon">
+                    <NuxtImg src="/assets/tedtalk-neutral.png"
+                        class="absolute inset-0 saturate-0 scale-[1.3] translate-y-[2%] origin-top"
+                        alt="Linework Simon in a neutral pose in black and white." />
+                </div>
+                <div
+                    class="col-span-3 font-serif grid place-content-center p-4 text-black gap-[.5em] text-sm text-business-card">
+                    <p>Simon W</p>
+                    <p>Web Developer</p>
+                    <hr>
+                    <p>simonw.xyz</p>
+                </div>
+            </div>
         </figure>
         <div class="outer">
             <div class="inner">
@@ -201,7 +225,8 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+            <NuxtImg src="/assets/tedtalk-blocky.png"
+                alt="Linework Simon delivers this point sincerely, hands clasped across his chest." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -214,8 +239,9 @@ onMounted(() => {
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+        <figure class="group bg-teal-500">
+            <NuxtImg src="/assets/tedtalk-extra-emphasis.png"
+                alt="Linework Simon punches the air playfully. As if striking a pose." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -229,7 +255,7 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+            <NuxtImg src="/assets/tedtalk-a-dog.png" alt="Linework Simon the Dog returns. We're not sure why." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -240,8 +266,9 @@ onMounted(() => {
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
-            <NuxtImg src="/assets/tedtalk-emphasis.png" />
+        <figure class="group bg-emerald-700">
+            <NuxtImg src="/assets/tedtalk-a-dog-bork.png" class=" rotate-45 translate-x-1/2 "
+                alt="Linework Simon the Dog woofs their final acknowledgement." />
         </figure>
         <div class="outer">
             <div class="inner">
@@ -251,7 +278,12 @@ onMounted(() => {
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
+        <figure class="group overflow-hidden bg-neutral-900">
+            <div
+                class="absolute left-0 top-1/2 -translate-y-1/2 translate-x-1/2 transition group-[.active]:duration-[5s] group-[.active]:-translate-x-full">
+                <NuxtImg src="/assets/tedtalk-a-dog.png" class="brightness-50 animate-small-bounce duration-200"
+                    alt="Simon the Linework Dog leaves to the left." />
+            </div>
         </figure>
         <div class="outer">
             <div class="inner">
@@ -264,8 +296,31 @@ onMounted(() => {
 </template>
 
 <style>
+@keyframes small-bounce {
+    to {
+        transform: translateY(1rem);
+    }
+}
+
+.animate-small-bounce {
+    animation: small-bounce 100ms alternate infinite;
+}
+
+.text-business-card {
+    @apply antialiased;
+    font-size: clamp(.5rem, 5vw, 3rem);
+
+    @screen sm {
+        font-size: clamp(.5rem, 1.2vw, 3rem);
+    }
+}
+
 .text-sm-relative {
     font-size: .5em;
+}
+
+.horizon {
+    @apply bg-gradient-to-b from-[transparent_70%] to-[#0009_70%];
 }
 
 section {
@@ -282,7 +337,7 @@ section {
         @apply transition duration-1000;
         @apply fixed inset-0;
         @apply place-content-center;
-        @apply bg-gradient-to-b from-[transparent_70%] to-[#0009_70%];
+        @apply horizon;
 
         &.no-horizon {
             background-image: none;
@@ -296,6 +351,13 @@ section {
         @apply relative z-20;
         @apply grid items-center gap-4;
 
+        .inner {
+            @apply bg-black/90 rounded-lg;
+            margin: clamp(.2rem, 2%, 1rem);
+            padding: clamp(.2rem, 2%, 1rem);
+            text-wrap: balance;
+        }
+
         blockquote {
             & p:first-of-type::before {
                 content: '“';
@@ -304,12 +366,6 @@ section {
             & p:last-of-type::after {
                 content: '”';
             }
-        }
-
-        .inner {
-            @apply bg-black/90 rounded-lg;
-            margin: clamp(.2rem, 2%, 1rem);
-            padding: clamp(.2rem, 2%, 1rem);
         }
     }
 
@@ -335,10 +391,10 @@ section {
 section {
     figure {
         /* Allow slides to show / hide when activated */
-        @apply transition duration-1000 delay-1000 opacity-0 overflow-clip;
+        @apply opacity-0 overflow-clip;
 
         &.active {
-            @apply delay-0 z-10 opacity-100 overflow-visible;
+            @apply transition z-10 opacity-100 overflow-visible;
         }
     }
 }
