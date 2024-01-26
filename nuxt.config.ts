@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "@nuxtjs/google-fonts",
+    "@nuxt/content",
+  ],
   tailwindcss: {
     config: "/tailwind.config.ts",
   },
@@ -11,6 +16,13 @@ export default defineNuxtConfig({
     families: {
       "Architects+Daughter": {},
       "Permanent+Marker": {},
+    },
+  },
+
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: "github-dark",
     },
   },
   build: {

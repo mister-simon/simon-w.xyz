@@ -1,5 +1,5 @@
 <template>
-  <div class="grid h-full layout">
+  <div class="grid h-full">
     <NuxtPage />
   </div>
 </template>

@@ -67,6 +67,9 @@ useHead({
       <li>
         <NuxtLink to="/totally-pro">A Professional</NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/thoughts-and-things">Thoughts... And... Things?</NuxtLink>
+      </li>
     </ul>
   </div>
 </template>

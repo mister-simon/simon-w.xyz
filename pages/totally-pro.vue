@@ -2,6 +2,9 @@
 const section = ref(null);
 let obs = null;
 
+/**
+ * @param {IntersectionObserverEntry[]} entries
+ */
 const cb = function (entries) {
     entries.forEach(
         ({ isIntersecting, target }) => {
@@ -20,6 +23,9 @@ onMounted(() => {
         .querySelectorAll('figure+div')
         .forEach(el => obs.observe(el));
 })
+
+onBeforeUnmount(() => obs.disconnect());
+
 </script>
 <template>
     <Head>
@@ -55,6 +61,7 @@ onMounted(() => {
             <div class="inner">
                 <blockquote>
                     <p>Welcome to my TEDTalk...</p>
+                    <p>What Even Is A Professional</p>
                 </blockquote>
             </div>
         </div>
@@ -169,7 +176,19 @@ onMounted(() => {
             <div class="inner">
                 <blockquote>
                     <p>Being a professional is about understanding that you have the power to make something good if you
-                        present your skills well - you take responsibility for scoping, fulfil requirements, and fight for
+                        present your skills well.</p>
+                </blockquote>
+            </div>
+        </div>
+
+        <figure class="group bg-neutral-700">
+            <NuxtImg src="/assets/tedtalk-a-dog.png" alt="Linework Simon the Dog ."
+                class="animate-small-bounce [--animation-duration:200ms]" />
+        </figure>
+        <div class="outer">
+            <div class="inner">
+                <blockquote>
+                    <p>You take responsibility for scoping, fulfil requirements, and fight for
                         quality within any known limitations.</p>
                 </blockquote>
             </div>
@@ -194,7 +213,7 @@ onMounted(() => {
         <div class="outer">
             <div class="inner">
                 <blockquote>
-                    <p>People consider professionalism as an aesthetic.</p>
+                    <p>Some people consider professionalism as an aesthetic.</p>
                 </blockquote>
             </div>
         </div>
@@ -219,12 +238,12 @@ onMounted(() => {
         <div class="outer">
             <div class="inner">
                 <blockquote>
-                    <p>A suit and tie - a suitcase full of clean cut black and white business cards.</p>
+                    <p>A suit and tie, clean cut business cards.</p>
                 </blockquote>
             </div>
         </div>
 
-        <figure class="group bg-neutral-700">
+        <figure class="group bg-neutral-500">
             <NuxtImg src="/assets/tedtalk-blocky.png"
                 alt="Linework Simon delivers this point sincerely, hands clasped across his chest." />
         </figure>
@@ -234,7 +253,7 @@ onMounted(() => {
                     <p>Hopefully that's been less important to you since 2022.</p>
                 </blockquote>
                 <p class="text-sm-relative">
-                    <em>*a single micro-tear falls from a micro-manager's eye in the audience*</em>
+                    <em>*a tiny tear falls from a micromanager's eye in the audience*</em>
                 </p>
             </div>
         </div>
@@ -267,8 +286,10 @@ onMounted(() => {
         </div>
 
         <figure class="group bg-emerald-700">
-            <NuxtImg src="/assets/tedtalk-a-dog-bork.png" class=" rotate-45 translate-x-1/2 "
-                alt="Linework Simon the Dog woofs their final acknowledgement." />
+            <div class="animate-bounce duration-200">
+                <NuxtImg src="/assets/tedtalk-a-dog-bork.png" class=" rotate-45 translate-x-1/2 "
+                    alt="Linework Simon the Dog woofs their final acknowledgement." />
+            </div>
         </figure>
         <div class="outer">
             <div class="inner">
@@ -280,15 +301,18 @@ onMounted(() => {
 
         <figure class="group overflow-hidden bg-neutral-900">
             <div
-                class="absolute left-0 top-1/2 -translate-y-1/2 translate-x-1/2 transition group-[.active]:duration-[5s] group-[.active]:-translate-x-full">
-                <NuxtImg src="/assets/tedtalk-a-dog.png" class="brightness-50 animate-small-bounce duration-200"
+                class="absolute left-0 top-1/2 -translate-y-1/2 transition group-[.active]:duration-[5s] group-[.active]:-translate-x-full">
+                <NuxtImg src="/assets/tedtalk-a-dog.png" class="brightness-50 animate-small-bounce"
                     alt="Simon the Linework Dog leaves to the left." />
             </div>
         </figure>
         <div class="outer">
             <div class="inner">
                 <p class="text-sm-relative">
-                    <em>*clapping*</em>
+                    <em>*clapping, whooping, a standing ovation*</em>
+                </p>
+                <p class="text-sm-relative">
+                    <em>*the audience particularly liked the parts where he became a dog*</em>
                 </p>
             </div>
         </div>
@@ -298,12 +322,12 @@ onMounted(() => {
 <style>
 @keyframes small-bounce {
     to {
-        transform: translateY(1rem);
+        transform: translateY(-1rem);
     }
 }
 
 .animate-small-bounce {
-    animation: small-bounce 100ms alternate infinite;
+    animation: small-bounce var(--animation-duration, 200ms) alternate infinite ease-out;
 }
 
 .text-business-card {
