@@ -24,6 +24,9 @@ export default defineNuxtConfig({
       // Theme used in all color schemes.
       theme: "github-dark",
     },
+    navigation: {
+      fields: ["title", "icon"],
+    },
   },
   build: {
     postcss: {

@@ -16,5 +16,12 @@ export default <Partial<Config>>{
     },
   },
   plugins: [typography],
-  content: [],
+  content: [
+    "./content/**/*.md",
+    "./components/**/*.vue",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{ts,js}",
+    "./nuxt.config.{ts,js}",
+  ],
 };
