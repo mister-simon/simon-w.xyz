@@ -25,7 +25,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => obs.disconnect());
-
 </script>
 <template>
     <Head>
