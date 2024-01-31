@@ -366,6 +366,11 @@ section {
         &.no-horizon {
             background-image: none;
         }
+
+        img {
+            max-height: 100vh;
+            max-height: 100svh;
+        }
     }
 
     .outer {
