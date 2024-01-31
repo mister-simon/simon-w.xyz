@@ -16,6 +16,7 @@ const thingsQuery = queryContent({
                 aria-label="Back">
                 &lt;&mdash;
             </NuxtLink>
+            <span class="hidden router-link-exact-active router-link-active"></span>
             <ContentNavigation :query="thingsQuery" class="mt-16" />
         </nav>
 
@@ -57,7 +58,7 @@ const thingsQuery = queryContent({
     </main>
 </template>
 
-<style>
+<style scoped>
 .blog-nav {
     li ul {
         padding-left: .5em;

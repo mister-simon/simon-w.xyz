@@ -39,7 +39,7 @@ onBeforeUnmount(() => obs.disconnect());
     </nav>
 
     <section class="bg-black text-neutral-100 isolate" ref="section">
-        <figure class="group overflow-clip bg-neutral-900">
+        <figure class="group overflow-clip bg-neutral-900 active">
             <div
                 class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full transition delay-1000 duration-1000 group-[.active]:-translate-x-1/2">
                 <NuxtImg src="/assets/tedtalk-emphasis.png" class="rotate-12 brightness-50 -scale-x-100"
@@ -319,7 +319,7 @@ onBeforeUnmount(() => obs.disconnect());
     </section>
 </template>
 
-<style>
+<style scoped>
 @keyframes small-bounce {
     to {
         transform: translateY(-1rem);

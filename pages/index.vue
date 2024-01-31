@@ -74,7 +74,7 @@ useHead({
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   @apply bg-black text-neutral-100;
 }
