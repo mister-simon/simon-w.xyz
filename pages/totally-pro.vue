@@ -218,7 +218,7 @@ onBeforeUnmount(() => obs.disconnect());
             </div>
         </div>
 
-        <figure class="group place-content-stretch no-horizon bg-neutral-100">
+        <figure class="group place-content-stretch no-horizon bg-neutral-100 !flex">
             <div
                 class="grid border border-black rounded-sm aspect-[1.75] w-full grid-cols-5 self-center rotate-2 m-4 bg-white origin-bottom-left shadow transition hover:rotate-0 hover:scale-110 hover:shadow-[0_1.2rem_0.5rem_-1rem_#0006]">
                 <div class="col-span-2 relative overflow-hidden m-2 horizon">
