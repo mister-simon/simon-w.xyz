@@ -5,7 +5,9 @@ const blogQuery = useBlogQuery();
 <template>
     <Body class="bg-black text-neutral-100 grid min-h-svh" />
     <main class="grid md:grid-cols-[max-content_auto] relative min-h-full">
-        <nav class="p-4 md:sticky top-0 bg-neutral-950 blog-nav">
+        <slot />
+
+        <nav class="p-4 md:sticky top-0 bg-neutral-950 blog-nav -order-1">
             <NuxtLink to="/"
                 class="text-5xl block place-content-center font-script font-bold origin-left motion-safe:transition-transform hover:scale-150"
                 aria-label="Back">
@@ -14,16 +16,10 @@ const blogQuery = useBlogQuery();
             <span class="hidden router-link-exact-active router-link-active"></span>
             <ContentNavigation :query="blogQuery" class="md:mt-16" />
         </nav>
-        <slot />
     </main>
 </template>
 
 <style>
-.shiki {
-    max-width: fit-content;
-    overflow: auto;
-}
-
 .blog-nav {
     @apply max-h-svh;
 
