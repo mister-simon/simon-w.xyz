@@ -54,3 +54,14 @@ useHead({
   ]
 })
 </script>
+<style>
+body {
+  &>* {
+    grid-area: 1 / 1;
+  }
+
+  &> :first-child {
+    z-index: 10;
+  }
+}
+</style>

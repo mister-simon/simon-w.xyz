@@ -4,7 +4,7 @@ const blogQuery = useBlogQuery();
 
 <template>
     <Body class="bg-black text-neutral-100 grid min-h-svh" />
-    <main class="grid md:grid-cols-[max-content_auto] relative">
+    <main class="grid md:grid-cols-[max-content_auto] relative min-h-full">
         <nav class="p-4 md:sticky top-0 bg-neutral-950 blog-nav">
             <NuxtLink to="/"
                 class="text-5xl block place-content-center font-script font-bold origin-left motion-safe:transition-transform hover:scale-150"
@@ -19,7 +19,14 @@ const blogQuery = useBlogQuery();
 </template>
 
 <style>
+.shiki {
+    max-width: fit-content;
+    overflow: auto;
+}
+
 .blog-nav {
+    @apply max-h-svh;
+
     li ul {
         padding-left: .5em;
     }
