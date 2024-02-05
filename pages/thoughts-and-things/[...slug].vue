@@ -6,7 +6,6 @@ const latest = await queryContent({
     from: 'thoughts-and-things',
     sort: [{ date: -1 }]
 }).findOne();
-
 </script>
 
 <template>
@@ -35,3 +34,9 @@ const latest = await queryContent({
         </template>
     </ContentDoc>
 </template>
+
+<style>
+.bordered {
+    @apply border border-neutral-500/50 rounded-lg overflow-hidden;
+}
+</style>

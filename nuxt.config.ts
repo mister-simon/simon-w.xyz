@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/content",
   ],
   tailwindcss: {
-    config: "/tailwind.config.ts",
+    configPath: "~/tailwind.config.ts",
   },
   googleFonts: {
     families: {
@@ -18,14 +18,13 @@ export default defineNuxtConfig({
       "Permanent+Marker": {},
     },
   },
-
   content: {
     highlight: {
       // Theme used in all color schemes.
       theme: "github-dark",
     },
     navigation: {
-      fields: ["title", "icon", "date"],
+      fields: ["title", "icon", "date", "_id"],
     },
   },
   build: {
