@@ -43,7 +43,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .drum-machine {
     @apply border-8 border-slate-400;
 }
