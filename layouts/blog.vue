@@ -1,5 +1,12 @@
 <script setup>
-const blogQuery = useBlogQuery();
+const { data: navigation } = await useAsyncData(
+    'blog-nav',
+    () => {
+        return useBlogQuery(10)
+            .only(['title', '_path'])
+            .find();
+    }
+);
 </script>
 
 <template>
@@ -14,14 +21,29 @@ const blogQuery = useBlogQuery();
                 &lt;&mdash;
             </NuxtLink>
             <span class="hidden router-link-exact-active router-link-active"></span>
-            <ContentNavigation :query="blogQuery" class="md:mt-16" />
+
+            <ul class="md:mt-10">
+                <li>
+                    <NuxtLink to="/thoughts-and-things">
+                        Thoughts and Things
+                    </NuxtLink>
+                    <ul v-if="navigation">
+                        <li v-for="link in navigation" :key="link._path">
+                            <NuxtLink :to="link._path">
+                                {{ link.title }}
+                            </NuxtLink>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
         </nav>
     </main>
 </template>
 
-<style>
+<style scoped>
 .blog-nav {
-    @apply max-h-svh;
+    @apply max-h-svh overflow-auto;
 
     li ul {
         padding-left: .5em;

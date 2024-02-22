@@ -1,7 +1,8 @@
-export const useBlogQueryObject = () => ({
+export const useBlogQueryObject = (count, skip) => ({
     where: {
         _path: { $contains: '/thoughts-and-things' }
     },
-    limit: 5,
+    limit: count ?? Infinity,
+    skip: skip ?? 0,
     sort: [{ date: -1 }]
 });

@@ -1,1 +1,1 @@
-export const useBlogQuery = () => queryContent(useBlogQueryObject());
+export const useBlogQuery = (count, skip) => queryContent(useBlogQueryObject(count, skip));

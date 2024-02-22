@@ -47,8 +47,7 @@ onUnmounted(() => cancelAnimationFrame(animationFrame));
 </script>
 
 <template>
-    <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section"
-        @click="wort = !wort">
+    <section class="md:grid relative overflow-hidden cursor-none" @mousemove.passive="cursorMove" ref="section">
         <template v-for="(cursor, i) of cursors">
             <div class="heart-cursor absolute z-50 leading-none pointer-events-none translate-x-[--cursor-x] translate-y-[--cursor-y] text-[calc(var(--text-size))] motion-reduce:text-4xl"
                 :class="{ 'motion-reduce:hidden': i !== 1 }" :style="{
