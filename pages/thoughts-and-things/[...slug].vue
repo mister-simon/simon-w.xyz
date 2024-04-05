@@ -12,11 +12,13 @@ const latest = await queryContent({
     <ContentDoc>
         <template #default="{ doc }">
             <article class="grid place-content-center">
-                <div class="prose md:prose-xl prose-invert p-4 pt-8 min-w-0">
-                    <h1>{{ doc.title }}</h1>
-                    <p v-if="doc.date"><time datetime="{{ doc.date }}">{{ doc.date }}</time></p>
-                    <p class="lead">{{ doc.description }}</p>
-                    <ContentRenderer :value="doc" />
+                <div class="prose md:prose-xl prose-invert p-4 pt-8 min-w-0 blog-grid max-w-none">
+                    <div class="main">
+                        <h1>{{ doc.title }}</h1>
+                        <p v-if="doc.date"><time datetime="{{ doc.date }}">{{ doc.date }}</time></p>
+                        <p class="lead">{{ doc.description }}</p>
+                    </div>
+                    <ContentRenderer :value="doc" class="main" />
                 </div>
             </article>
         </template>
@@ -38,5 +40,19 @@ const latest = await queryContent({
 <style>
 .bordered {
     @apply border border-neutral-500/50 rounded-lg overflow-hidden;
+}
+
+.blog-grid .main {
+    display: grid;
+    grid-template-columns: [breakout-start] auto [main-start] 65ch [main-end] auto [breakout-end];
+
+    &>* {
+        grid-column: main;
+    }
+
+    &>.breakout,
+    &>:has(> .breakout) {
+        grid-column: breakout;
+    }
 }
 </style>
