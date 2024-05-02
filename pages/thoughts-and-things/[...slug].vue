@@ -44,7 +44,7 @@ const latest = await queryContent({
 
 .blog-grid .main {
     display: grid;
-    grid-template-columns: [breakout-start] auto [main-start] 65ch [main-end] auto [breakout-end];
+    grid-template-columns: [breakout-start] auto [main-start] minmax(auto, 65ch) [main-end] auto [breakout-end];
 
     &>* {
         grid-column: main;
