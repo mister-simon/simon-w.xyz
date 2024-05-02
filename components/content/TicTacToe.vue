@@ -1,8 +1,8 @@
 <script setup>
-import { ref, reactive, computed, onMounted } from "vue";
+import { ref, reactive, computed, watch } from "vue";
 
-let gridW = 3;
-let gridH = 5;
+let gridW = ref(3);
+let gridH = ref(3);
 let cells = reactive({});
 
 // 0 = O. 1 = X.
@@ -10,16 +10,19 @@ let player = ref(0);
 let winner = ref(null);
 let game = ref("playing");
 
+watch(gridW, reset);
+watch(gridH, reset);
+
 function reset() {
     player.value = 0;
     winner.value = null;
 
     cells = reactive({});
 
-    for (let y = 0; y < gridH; y++) {
+    for (let y = 0; y < gridH.value; y++) {
         cells[y] = {};
-        for (let x = 0; x < gridW; x++) {
-            cells[y][x] = { state: null, x, y };
+        for (let x = 0; x < gridW.value; x++) {
+            cells[y][x] = { state: null, x, y, highlight: false };
         }
     }
 
@@ -42,139 +45,69 @@ function select(cell, x, y) {
     player.value = player.value === 0 ? 1 : 0;
 }
 
-function getCell(x, y) {
-    return { x, y };
 
-    const row = cells[y];
-
-    if (row) {
-        return row[x] ?? null;
-    }
-
-    return null;
-}
-
-function evaluateBoard() {
+function* evaluableCells() {
     // Evaluate horizontal
-    for (let y = 0; y < gridW; y++) {
-        const row = Object.values(cells[y]);
-
-        if (evaluateCells(row)) {
-            setWinner();
-
-            return true;
-        }
+    for (let y = 0; y < gridH.value; y++) {
+        yield Object.values(cells[y]);
     }
 
     // Evaluate vertical
-    for (let x = 0; x < gridH; x++) {
-        const col = Object.values(cells)
-            .map(row => row[x]);
+    for (let x = 0; x < gridW.value; x++) {
+        yield Object.values(cells).map(row => row[x]);
+    }
 
-        if (evaluateCells(col)) {
-            setWinner();
+    // Traverse across, evaluating diagonals
+    const diagArr = Array.from(Array(gridMin.value));
+
+    for (let x = 0; x <= gridW.value - gridMin.value; x++) {
+        // Left to right
+        yield diagArr.map(
+            (_, i) => (cells[i][x + i])
+        );
+
+        // Right to left
+        yield diagArr.map(
+            (_, i) => (cells[i][(gridW.value - x) - 1 - i])
+        );
+    }
+
+    // Traverse down
+    for (let y = 0; y <= gridH.value - gridMin.value; y++) {
+        // Top to bottom
+        yield diagArr.map(
+            (_, i) => (cells[y + i][i])
+        );
+
+        // Bottom to top
+        yield diagArr.map(
+            (_, i) => (cells[(gridH.value - y) - 1 - i][i])
+        );
+    }
+}
+
+function evaluateBoard() {
+    const cellSets = evaluableCells();
+
+    // Evaluate regular win conditions
+    for (const cellSet of cellSets) {
+        if (evaluateCells(cellSet)) {
+            cellSet.forEach((cell) => cell.highlight = true);
 
             return true;
         }
     }
 
-    const gridX = Array.from(Array(gridW)).map((_, i) => ({ x: i, y: 0 }));
-    const gridY = Array.from(Array(gridH)).map((_, i) => ({ x: 0, y: i }));
-
-    const diagLtrX = gridX.map(
-        ({ x: xx, y: xy }, xi) => gridY.map(({ x: yx, y: yy }, yi) => (getCell(yi, xx + yi)))
-    )
-
-    const diagLtrY = gridY.map(
-        ({ x: yx, y: yy }, yi) => gridX.map(({ x: xx, y: xy }, xi) => (getCell(yy + xi, xi)))
-    )
-
-    const diagRtlX = gridX.map(
-        ({ x: xx, y: xy }, xi) => gridY.map(({ x: yx, y: yy }, yi) => (getCell(yi, xx - yi)))
-    )
-
-    const diagRtlY = gridY.map(
-        ({ x: yx, y: yy }, yi) => gridX.map(({ x: xx, y: xy }, xi) => (getCell(yy - xi, xi)))
-    )
-
-    console.log({
-        diagLtrX,
-        diagRtlX,
-        diagLtrY,
-        diagRtlY
-    });
-
-    // console.log({ gridX, gridY });
-
-
-    /*     // Evaluate diags along x
-        const firstRow = Object.values(cells[0]);
-        const firstCol = Object.values(cells).map(row => row[0]);
-    
-        for (const cell of firstRow) {
-            const diagRtl = Object.values(cells).map((row, i) => row[i + cell.x]);
-            const diagLtr = Object.values(cells).map((row, i) => row[((gridW - 1) - i) + cell.x]);
-    
-            if (evaluateCells(diagRtl) || evaluateCells(diagLtr)) {
-                return true;
-            }
-        }
-    
-        // Evaluate diags along x
-        for (const cell of firstRow) {
-            const diagLtr = firstRow
-                .map(
-                    ({ x, y }, i) => ({
-                        x: x + cell.x,
-                        y: y + i
-                    })
-                );
-    
-            const diagRtl = firstRow
-                .reverse()
-                .map(
-                    ({ x, y }, i) => ({
-                        x: x - cell.x,
-                        y: y + i
-                    })
-                );
-    
-            // console.log(diagRtl);
-        }
-    
-        // Evaluate diags along y
-    
-        for (const cell of firstCol) {
-            const diagLtr = firstCol
-                .map(
-                    ({ x, y }, i) => ({
-                        x: x + i,
-                        y: y + cell.y
-                    })
-                );
-    
-            const diagRtl = firstCol
-                .reverse()
-                .map(
-                    ({ x, y }, i) => ({
-                        x: x + i,
-                        y: y - cell.y
-                    })
-                );
-    
-            // console.log(diagRtl);
-        } */
-
     // Evaluate draw
-    const flatCells = Object.values(cells)
-        .flatMap((row) => Object.values(row));
-
-    const draw = flatCells.every(cell => cell.state !== null);
+    const draw = Object.values(cells)
+        .flatMap((row) => Object.values(row))
+        .every(cell => cell.state !== null);
 
     if (draw) {
         return true;
     }
 
+    // Keep playing
     return false;
 }
 
@@ -197,10 +130,6 @@ function evaluateCells(cells) {
     return cells.every((cell) => cell.state === first.state);
 }
 
-function setWinner() {
-    winner.value = player.value;
-}
-
 function endGame() {
     game.value = "end";
 }
@@ -213,12 +142,14 @@ function playerIcon(player) {
     return player ? '❌' : '⭕';
 }
 
-const shortSide = computed(() => Math.min(gridW, gridH));
+const currentPlayerIcon = computed(() => playerIcon(player.value));
+
+const gridMin = computed(() => Math.min(gridW.value, gridH.value));
 
 const gridStyle = computed(
     () => ({
-        '--ttt-cols': `repeat(${gridW}, 1fr)`,
-        '--ttt-rows': `repeat(${gridH}, 1fr)`
+        '--ttt-cols': `repeat(${gridW.value}, 1fr)`,
+        '--ttt-rows': `repeat(${gridH.value}, 1fr)`
     })
 );
 
@@ -226,19 +157,31 @@ reset();
 </script>
 
 <template>
-    <div class="">
-        <div class="relative grid grid-cols-[--ttt-cols] grid-rows-[--ttt-rows] gap-4 max-w-sm mx-auto"
-            :style="gridStyle">
+    <div>
+        <div class="flex gap-4 justify-center">
+            <input type="number" name="width" id="width" placeholder="width" class="pl-4 w-[5ch] rounded text-black"
+                v-model="gridW">
+            x
+            <input type="number" name="height" id="height" placeholder="height" class="pl-4 w-[5ch] rounded text-black"
+                v-model="gridH">
+        </div>
+        <div class="relative grid grid-cols-[--ttt-cols] grid-rows-[--ttt-rows] gap-4 mx-auto p-4" :style="gridStyle">
             <template v-for="(row, y) in cells">
                 <template v-for="(cell, x) in row">
-                    <button class="aspect-square text-center bg-neutral-500 rounded" @click="select(cell, x, y)">
-                        {{ playerIcon(cell.state) }} {{ x }},{{ y }}
+                    <button class="aspect-square text-center bg-neutral-500 rounded transition-transform"
+                        @click="select(cell, x, y)"
+                        :class="{ 'border-green-500 border-4 bg-green-700 scale-110': cell.highlight }">
+                        {{ playerIcon(cell.state) }}
                     </button>
                 </template>
             </template>
 
             <div class="absolute inset-0 bg-slate-500/50 rounded grid place-content-center" v-show="game === 'end'">
-                <button @click="reset">Play Again!</button>
+                <button @click="reset"
+                    class="bg-green-500/80 border-green-200 border-4 aspect-square rounded-lg text-xl text-center grid content-center p-4 gap-4 hover:scale-125 transition-transform">
+                    <span class="text-2xl">{{ currentPlayerIcon }}</span>
+                    <span class="text-white">Play Again!</span>
+                </button>
             </div>
         </div>
     </div>
