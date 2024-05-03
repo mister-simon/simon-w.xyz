@@ -186,5 +186,3 @@ reset();
         </div>
     </div>
 </template>
-
-<style></style>
