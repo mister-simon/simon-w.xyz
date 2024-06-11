@@ -16,21 +16,20 @@
         <li class="text-[1.4em]">
           <NuxtLink to="/thoughts-and-things">Have thoughts and things... Read 'em!</NuxtLink>
         </li>
-        <li>Work with Vue and learnt made this site partially to learn Nuxt.</li>
+        <li>Use Pop!_OS</li>
+        <li>Use VSCode</li>
+        <li>Use Vue and made this site partially to learn Nuxt</li>
         <li>Am learning some React / Next.js</li>
         <li>Played Dustforce on a charity livestream with thousands of viewers</li>
         <li>Used to make flash animations</li>
-        <li>Have a wonderful fiancee and adorable two rabbits</li>
-        <li>Use Pop!_OS</li>
-        <li>Use VSCode</li>
+        <li>Have a wonderful fiancee and two adorable rabbits</li>
         <li>Learnt the Colemak keyboard layout and switched to a 40% ortho keyboard... Easily the nerdiest thing I've
-          done in recent years.
+          done in recent years
         </li>
       </ul>
       </p>
 
       <h2>Some other nonsense:</h2>
-      <p>
       <ul>
         <li>
           <NuxtLink to="/totally-pro">What is a Professional?</NuxtLink>
@@ -39,7 +38,6 @@
           <NuxtLink to="/makes-incredible-designs">Is Simon an Incredible Designer?</NuxtLink>
         </li>
       </ul>
-      </p>
     </div>
   </div>
 
