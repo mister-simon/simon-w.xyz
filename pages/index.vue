@@ -12,6 +12,7 @@
 
       <p>
         I usually work with Laravel in PHP - but also I:
+      </p>
       <ul>
         <li class="text-[1.4em]">
           <NuxtLink to="/thoughts-and-things">Have thoughts and things... Read 'em!</NuxtLink>
@@ -27,7 +28,6 @@
           done in recent years
         </li>
       </ul>
-      </p>
 
       <h2>Some other nonsense:</h2>
       <ul>
