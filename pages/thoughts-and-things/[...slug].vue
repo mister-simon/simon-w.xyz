@@ -55,4 +55,9 @@ const latest = await queryContent({
         grid-column: breakout;
     }
 }
+
+/* Override blockquotes containing their own formatting */
+.prose :where(blockquote):has(strong, em):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply not-italic font-normal;
+}
 </style>
