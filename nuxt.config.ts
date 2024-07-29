@@ -3,21 +3,25 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
     "@nuxtjs/google-fonts",
     "@nuxt/content",
   ],
+
   tailwindcss: {
     configPath: "~/tailwind.config.ts",
   },
+
   googleFonts: {
     families: {
       "Architects+Daughter": {},
       "Permanent+Marker": {},
     },
   },
+
   content: {
     highlight: {
       // Theme used in all color schemes.
@@ -28,6 +32,7 @@ export default defineNuxtConfig({
       fields: ["title", "icon", "date", "_id"],
     },
   },
+
   build: {
     postcss: {
       plugins: {
@@ -38,4 +43,6 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  compatibilityDate: "2024-07-29",
 });
