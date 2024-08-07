@@ -14,8 +14,8 @@
         I usually work with Laravel in PHP - but also I:
       </p>
       <ul>
-        <li class="text-[1.4em]">
-          <NuxtLink to="/thoughts-and-things">Have thoughts and things... Read 'em!</NuxtLink>
+        <li>
+          <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Have thoughts and things... Read 'em!</NuxtLink>
         </li>
         <li>Use Pop!_OS</li>
         <li>Use VSCode</li>
