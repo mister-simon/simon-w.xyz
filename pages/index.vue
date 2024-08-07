@@ -20,9 +20,11 @@
         <li>Use Pop!_OS</li>
         <li>Use VSCode</li>
         <li>Use Vue and made this site partially to learn Nuxt</li>
-        <li>Am learning some React / Next.js</li>
-        <li>Played Dustforce on a charity livestream with thousands of viewers</li>
+        <li>Am learning React / Next.js</li>
+        <li>Am learning Svelte 5</li>
+        <li><a href="https://youtu.be/XRb0RK-wNU4" target="_blank" rel="noopener noreferrer">Played Dustforce on a charity livestream</a> with thousands of viewers</li>
         <li>Used to make flash animations</li>
+        <li>Used to unicycle and juggle</li>
         <li>Have a wonderful fiancee and two adorable rabbits</li>
         <li>Learnt the Colemak keyboard layout and switched to a 40% ortho keyboard... Easily the nerdiest thing I've
           done in recent years
