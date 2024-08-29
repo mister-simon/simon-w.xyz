@@ -26,7 +26,17 @@ export default defineNuxtConfig({
     highlight: {
       // Theme used in all color schemes.
       theme: "github-dark",
-      langs: ["bash", "vue", "json", "js", "html", "css", "md", "php"],
+      langs: [
+        "bash",
+        "vue",
+        "json",
+        "js",
+        "html",
+        "css",
+        "md",
+        "php",
+        "svelte",
+      ],
     },
     navigation: {
       fields: ["title", "icon", "date", "_id"],
