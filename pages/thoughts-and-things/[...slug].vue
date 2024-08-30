@@ -27,7 +27,7 @@ const latest = await queryContent({
             <article class="grid place-content-center">
                 <div class="prose md:prose-xl prose-invert p-4 pt-8 min-w-0">
                     <h1 class="text-amber-200 text-balance">Ah dangit, that one doesn't exist...</h1>
-                    <hr class="">
+                    <hr>
                     <p>What about this one instead? 👀</p>
 
                     <ContentLinkBlock :content="latest" />
@@ -43,13 +43,24 @@ const latest = await queryContent({
 }
 
 .blog-grid .main {
+    --max-content-width: 65ch;
+    --breakout-difference: .5;
+
+    /*  Compute total allowed grid width to `--breakout-difference` 
+      larger than content area  */
+    --breakout-grid-width: calc(var(--max-content-width) + (var(--max-content-width) * var(--breakout-difference)));
+
     display: grid;
-    grid-template-columns: [breakout-start] auto [main-start] minmax(auto, 65ch) [main-end] auto [breakout-end];
+    grid-template-columns:
+        [breakout-start] 1fr [main-start] min(100%, var(--max-content-width)) [main-end] 1fr [breakout-end];
+    width: min(100% - 2rem, var(--breakout-grid-width));
+    margin-inline: auto;
 
     &>* {
         grid-column: main;
     }
 
+    &>.prose-code,
     &>.breakout,
     &>:has(> .breakout) {
         grid-column: breakout;
