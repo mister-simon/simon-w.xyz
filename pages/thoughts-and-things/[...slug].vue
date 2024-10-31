@@ -71,4 +71,9 @@ const latest = await queryContent({
 .prose :where(blockquote):has(strong, em):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     @apply not-italic font-normal;
 }
+
+/* Hastily add an image rendering class */
+.pixelated {
+    image-rendering: pixelated
+}
 </style>
