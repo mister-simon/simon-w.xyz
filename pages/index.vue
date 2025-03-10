@@ -54,4 +54,7 @@
 .bg-offset {
   translate: -10% -50%;
 }
+.prose {
+  text-underline-position: .5em;
+}
 </style>
