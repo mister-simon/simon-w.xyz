@@ -17,18 +17,16 @@
         <li>
           <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Have thoughts and things... Read 'em!</NuxtLink>
         </li>
-        <li>Use Pop!_OS</li>
+        <li>Use NixOS (previously Pop!_OS)</li>
         <li>Use VSCode</li>
         <li>Use Vue and made this site partially to learn Nuxt</li>
-        <li>Am learning React / Next.js</li>
         <li>Am learning Svelte 5</li>
+        <li>Learnt some React / Next.js (... I prefer Svelte tbh)</li>
         <li><a href="https://youtu.be/XRb0RK-wNU4" target="_blank" rel="noopener noreferrer">Played Dustforce on a charity livestream</a> with thousands of viewers</li>
         <li>Used to make flash animations</li>
         <li>Used to unicycle and juggle</li>
         <li>Have a wonderful fiancee and two adorable rabbits</li>
-        <li>Learnt the Colemak keyboard layout and switched to a 40% ortho keyboard... Easily the nerdiest thing I've
-          done in recent years
-        </li>
+        <li>Learnt the Colemak keyboard layout, switched to a 40% ortho keyboard, and now use a <a href="https://www.zsa.io/voyager" target="_blank" rel="noopener noreferrer">ZSA Voyager</a></li>
       </ul>
 
       <h2>Some other nonsense:</h2>
