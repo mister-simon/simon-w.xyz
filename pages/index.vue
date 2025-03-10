@@ -8,11 +8,7 @@
     <div class="relative z-10 prose prose-invert">
       <h1>simonw.xyz</h1>
       <p class="lead"><strong>Simon W</strong> is a <strong>Web Developer</strong> and has been since he was about 14
-        years old... About <em>{{ (new Date).getFullYear() - 2007 }} years ago</em>.</p>
-
-      <p>
-        Lemme tell you about myself ~ I:
-      </p>
+        years old... About <em>{{ (new Date).getFullYear() - 2007 }} years ago</em>. He also ~</p>
       <ul>
         <li>
           <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Have thoughts and things... Read 'em!</NuxtLink>
