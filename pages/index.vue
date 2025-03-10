@@ -34,10 +34,13 @@
       <h2>Some other nonsense:</h2>
       <ul>
         <li>
-          <NuxtLink to="/totally-pro">What is a Professional?</NuxtLink>
+          <a href="https://septembit24.simonw.xyz/" target="_blank">Septembit 2024 [Pixel Art]</a>
         </li>
         <li>
-          <NuxtLink to="/makes-incredible-designs">Is Simon an Incredible Designer?</NuxtLink>
+          <NuxtLink to="/totally-pro">What is a Professional? [Scroll Driven Storytelling]</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/makes-incredible-designs">Is Simon an Incredible Designer? [...]</NuxtLink>
         </li>
       </ul>
     </div>
