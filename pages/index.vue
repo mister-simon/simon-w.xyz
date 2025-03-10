@@ -55,6 +55,6 @@
   translate: -10% -50%;
 }
 .prose {
-  text-underline-position: .5em;
+  text-underline-offset: .5em;
 }
 </style>
