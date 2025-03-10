@@ -1,7 +1,7 @@
 <template>
 
   <Head>
-    <Title>Welcome! | SimonW.XYZ</Title>
+    <Title>Welcome! - SimonW.XYZ</Title>
   </Head>
 
   <div class="place-self-center relative p-10">
@@ -11,16 +11,17 @@
         years old... About <em>{{ (new Date).getFullYear() - 2007 }} years ago</em>.</p>
 
       <p>
-        I usually work with Laravel in PHP - but also I:
+        Lemme tell you about myself ~ I:
       </p>
       <ul>
         <li>
           <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Have thoughts and things... Read 'em!</NuxtLink>
         </li>
-        <li>Use NixOS (previously Pop!_OS)</li>
+        <li>Work mostly with Laravel in PHP</li>
+        <li>Use <a href="https://github.com/mister-simon/nixos" target="_blank" rel="noopener noreferrer">NixOS</a> (previously Pop!_OS)</li>
         <li>Use VSCode</li>
-        <li>Use Vue and made this site partially to learn Nuxt</li>
-        <li>Am learning Svelte 5</li>
+        <li>Enjoy Vue and made <a href="https://github.com/mister-simon/simon-w.xyz" target="_blank" rel="noopener noreferrer">this site</a> partially to learn Nuxt</li>
+        <li>Use Svelte 5 (and want to rebuild this site with it)</li>
         <li>Learnt some React / Next.js (... I prefer Svelte tbh)</li>
         <li><a href="https://youtu.be/XRb0RK-wNU4" target="_blank" rel="noopener noreferrer">Played Dustforce on a charity livestream</a> with thousands of viewers</li>
         <li>Used to make flash animations</li>
