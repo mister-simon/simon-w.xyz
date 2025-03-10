@@ -11,18 +11,17 @@
         years old... About <em>{{ (new Date).getFullYear() - 2007 }} years ago</em>. He also ~</p>
       <ul>
         <li>
-          <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Have thoughts and things... Read 'em!</NuxtLink>
+          <NuxtLink to="/thoughts-and-things" class="text-[1.4em]">Has thoughts and things... Read 'em!</NuxtLink>
         </li>
-        <li>Work mostly with Laravel in PHP</li>
-        <li>Use <a href="https://github.com/mister-simon/nixos" target="_blank" rel="noopener noreferrer">NixOS</a> (previously Pop!_OS)</li>
-        <li>Use VSCode</li>
-        <li>Enjoy Vue and made <a href="https://github.com/mister-simon/simon-w.xyz" target="_blank" rel="noopener noreferrer">this site</a> partially to learn Nuxt</li>
-        <li>Use Svelte 5 (and want to rebuild this site with it)</li>
+        <li>Works mostly with Laravel in PHP</li>
+        <li>Uses <a href="https://github.com/mister-simon/nixos" target="_blank" rel="noopener noreferrer">NixOS</a> (previously Pop!_OS)</li>
+        <li>Enjoys Vue and made <a href="https://github.com/mister-simon/simon-w.xyz" target="_blank" rel="noopener noreferrer">this site</a> partially to learn Nuxt</li>
+        <li>Uses Svelte 5 (and want to rebuild this site with it)</li>
         <li>Learnt some React / Next.js (... I prefer Svelte tbh)</li>
         <li><a href="https://youtu.be/XRb0RK-wNU4" target="_blank" rel="noopener noreferrer">Played Dustforce on a charity livestream</a> with thousands of viewers</li>
         <li>Used to make flash animations</li>
         <li>Used to unicycle and juggle</li>
-        <li>Have a wonderful fiancee and two adorable rabbits</li>
+        <li>Has a wonderful fiancee and two adorable rabbits</li>
         <li>Learnt the Colemak keyboard layout, switched to a 40% ortho keyboard, and now use a <a href="https://www.zsa.io/voyager" target="_blank" rel="noopener noreferrer">ZSA Voyager</a></li>
       </ul>
 
