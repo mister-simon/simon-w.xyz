@@ -6,7 +6,6 @@ settings:
 
 overrides:
   '@nuxtjs/mdc@<=0.13.2': '>=0.13.3'
-  esbuild@<=0.24.2: '>=0.25.0'
 
 devDependencies:
   '@nuxt/content':
